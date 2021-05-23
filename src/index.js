@@ -180,13 +180,13 @@ new Snows({
   num: 150,
 });
 
-// import React from "react";
-// import ReactDom from "react-dom";
+import React from "react";
+import ReactDom from "react-dom";
 
-// import "./index.less";
+import "./index.less";
 
-// const App = ({ title }) => {
-//   return <div className="wrap">{title}</div>;
-// };
+const App = ({ title }) => {
+  return <div className="wrap">{title}</div>;
+};
 
-// ReactDom.render(<App title='hello  webpack'/>,document.getElementById('root'));
+ReactDom.render(<App title='hello  webpack'/>,document.getElementById('root'));

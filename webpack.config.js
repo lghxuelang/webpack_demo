@@ -2,13 +2,16 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
+  context:  path.join(__dirname, './src'),
   entry: {
-    index: path.join(__dirname, "/src/index.js"),
+    index:'./index.js',
+    lib: './lib.js',
+    vendor: ['react', 'react-dom']
   },
   mode: "development",
   output: {
     filename: "[name].js",
-    publicPath: "/dist",
+    path: path.join(__dirname, './dist')
   },
   module: {
     //loaders加载器
@@ -30,11 +33,16 @@ module.exports = {
         test: /\.(png|svg|jpg|gif)$/,
         use: ["file-loader"],
       },
+      {
+        test: /\.html$/,
+        use: 'html-loader'
+      }
     ],
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
     port: 3000,
     hot: true,
+    publicPath:'/app/'
   },
 };
